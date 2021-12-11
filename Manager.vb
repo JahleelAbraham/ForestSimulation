@@ -19,6 +19,7 @@ Module Manager
     End Sub
     
     Public Sub UpdateState()
+        State.Month = Month
         State.TreeAmount = TreeManager.Trees.Count
         State.NorwaySpruce = TreeManager.Trees.FindAll(Function(t) TypeOf t Is NorwaySpruce).Count
         State.NordmannFir = TreeManager.Trees.FindAll(Function(t) TypeOf t Is NordmanFir).Count
@@ -26,7 +27,7 @@ Module Manager
     End Sub
     
     Public Sub DebugOutput()
-        Console.Clear()
+        AnsiConsole.Clear()
         
         AnsiConsole.MarkupLine($"=============== {Month.ToString()} ===============")
         AnsiConsole.MarkupLine(
@@ -41,12 +42,13 @@ Module Manager
         AnsiConsole.WriteLine()
         AnsiConsole.WriteLine()
 
+        
         AnsiConsole.WriteLine()
         AnsiConsole.MarkupLine($"Press 'P' To increase the simulation speed. 'O' To Slowdown           Current Speed: {Speed}")
     End Sub
     
     Private Sub Render(title As String, chart As IRenderable)
-        AnsiConsole.Write(new Panel(chart).Padding(1, 1).Header(title))
+        AnsiConsole.Write(new Panel(chart))
     End Sub
     
     Public Function CalculateDifference(a as Integer, b as Integer) As String

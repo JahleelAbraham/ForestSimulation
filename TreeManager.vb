@@ -8,7 +8,7 @@ Module TreeManager
     Public Sub Update()
         Dim n = Int((6 * Rnd) + 1)
         BirthdayCheck()
-        'TapMaple()
+        TapMaple()
         PlantTrees(n, n * 4)
     End Sub
     
@@ -26,11 +26,10 @@ Module TreeManager
         End If
         
         Dim tapped As Integer
-        Dim maples =
-                TryCast(CObj(Trees.FindAll(Function(t) TypeOf t Is Maple)), List(Of Maple)).Where(
-                    Function(t) t.CanBeTapped())
+        Dim maples = Trees.FindAll(Function(t) TypeOf t Is Maple)
         
-        Dim collection As IEnumerable(Of Maple) = maples.ToList()
+        Dim collection = TryCast(CObj(maples), List(Of Maple))
+        collection = collection.ToList().FindAll(Function(t) t.CanBeTapped())
         Shuffle(collection)
         
         For i = 0 To (maples.Count * Rnd) + 1
