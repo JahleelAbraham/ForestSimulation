@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{23B4EE20-3481-435E-A363-D5C0060FCD97}</ProjectGuid>
+        <OutputType>Exe</OutputType>
+        <StartupObject>ForestSimulation.Module1</StartupObject>
+        <RootNamespace>ForestSimulation</RootNamespace>
+        <AssemblyName>ForestSimulation</AssemblyName>
+        <FileAlignment>512</FileAlignment>
+        <MyType>Console</MyType>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <DefineDebug>true</DefineDebug>
+        <DefineTrace>true</DefineTrace>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DocumentationFile>ForestSimulation.xml</DocumentationFile>
+        <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <DefineDebug>false</DefineDebug>
+        <DefineTrace>true</DefineTrace>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DocumentationFile>ForestSimulation.xml</DocumentationFile>
+        <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    </PropertyGroup>
+    <PropertyGroup>
+        <OptionExplicit>On</OptionExplicit>
+    </PropertyGroup>
+    <PropertyGroup>
+        <OptionCompare>Binary</OptionCompare>
+    </PropertyGroup>
+    <PropertyGroup>
+        <OptionStrict>Off</OptionStrict>
+    </PropertyGroup>
+    <PropertyGroup>
+        <OptionInfer>On</OptionInfer>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="mscorlib" />
+        <Reference Include="Spectre.Console, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\Spectre.Console.0.43.1-preview.0.2\lib\netstandard2.0\Spectre.Console.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+          <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Data" />
+        <Reference Include="System.Deployment" />
+        <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+          <HintPath>..\packages\System.Memory.4.5.0\lib\netstandard2.0\System.Memory.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Numerics" />
+        <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="System.Net.Http" />
+    </ItemGroup>
+    <ItemGroup>
+        <Import Include="Microsoft.VisualBasic" />
+        <Import Include="System" />
+        <Import Include="System.Collections" />
+        <Import Include="System.Collections.Generic" />
+        <Import Include="System.Data" />
+        <Import Include="System.Diagnostics" />
+        <Import Include="System.Linq" />
+        <Import Include="System.Xml.Linq" />
+        <Import Include="System.Threading.Tasks" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Manager.vb" />
+        <Compile Include="Program.vb" />
+        <Compile Include="My Project\AssemblyInfo.vb" />
+        <Compile Include="My Project\Application.Designer.vb">
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Application.myapp</DependentUpon>
+        </Compile>
+        <Compile Include="TreeManager.vb" />
+        <Compile Include="Trees\Maple.vb" />
+        <Compile Include="Trees\NordmanFir.vb" />
+        <Compile Include="Trees\NorwaySpruce.vb" />
+        <Compile Include="Trees\Tree.vb" />
+        <Compile Include="Utils\Lists.vb" />
+        <Compile Include="Utils\State.vb" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="My Project\Application.myapp">
+            <Generator>MyApplicationCodeGenerator</Generator>
+            <LastGenOutput>Application.Designer.vb</LastGenOutput>
+        </None>
+        <None Include="packages.config" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
