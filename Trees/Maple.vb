@@ -3,10 +3,10 @@ Namespace Trees
     Public Class Maple
         Inherits Tree
         
-        Dim ReadOnly _tMinAge = 90
+        Dim ReadOnly _tMinAge = 4
         Dim ReadOnly _tAmount = 1.5
         
-        Public Function Tap As Integer
+        Public Function Tap As Double
             Return _tAmount
         End Function
     

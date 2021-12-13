@@ -5,7 +5,7 @@ Namespace Trees
         Dim ReadOnly _hMinAge = 90
         Dim ReadOnly _hMaxAge = 150
     
-        Public Function CanHarvest As Boolean
+        Public Overrides Function CanHarvest As Boolean
             If Age < _hMaxAge And Age > _hMinAge
                 Return True
             Else

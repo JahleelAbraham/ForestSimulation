@@ -2,6 +2,10 @@ Namespace Trees
     Public Class Tree
         Public Dim Age as Integer
         Public Dim Birthday as Month
+        
+        Public Overridable Function CanHarvest() As Boolean
+            Return False
+        End Function
     End Class
 
     Public Enum Month
