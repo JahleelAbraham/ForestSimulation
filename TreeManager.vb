@@ -7,6 +7,8 @@ Module TreeManager
     Public Dim Harvested As Integer = 0
     Public Dim HarvestMonth As Month = Month.May
     
+    Public Dim DestroyedInFire As Integer = 0
+    
     Public Sub Update()
         Dim n = Int((3 * Rnd) + 1)
         BirthdayCheck()
@@ -16,6 +18,7 @@ Module TreeManager
             Harvest()
         End If
         
+        'RNG()
         PlantTrees(n, n * 4)
     End Sub
     
@@ -100,5 +103,33 @@ Module TreeManager
                     Next
                 End If
             Next
+    End Sub
+    
+    ''' <summary>
+    ''' Calculates anything random
+    ''' </summary>
+    Private Sub RNG()
+        '-> Forest Fires
+        If Month < Month.September And Month > Month.May
+            Dim chance = Int((500 * Rnd) + 1)
+            
+            If chance < 400 And chance > 367
+                Randomize()
+                
+                Dim TTD = Trees
+                Dim ATD = Int((300 * Rnd) + 1) - 1
+                
+                If ATD > TTD.Count
+                    ATD = TTD.Count
+                End If
+                
+                Shuffle(TTD)
+                
+                For i = 0 To ATD - 1 
+                    Trees.Remove(TTD.ElementAt(i))
+                    DestroyedInFire += 1
+                Next
+            End If
+        End If
     End Sub
 End Module

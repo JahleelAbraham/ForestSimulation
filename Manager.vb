@@ -32,6 +32,7 @@ Module Manager
         State.Maple = TreeManager.Trees.FindAll(Function(t) TypeOf t Is Maple).Count
         State.Syrup = Syrup
         State.Harvested = Harvested
+        State.DestroyedInFire = DestroyedInFire
     End Sub
     
     Public Sub DebugOutput()
@@ -49,15 +50,13 @@ Module Manager
         AnsiConsole.MarkupLine($"Syrup: {State.Syrup}L {CalculateDifference(State.Syrup, OldState.Syrup)}")
         AnsiConsole.MarkupLine($"Harvested: {State.Harvested} Trees {CalculateDifference(State.Harvested, OldState.Harvested)}")
         AnsiConsole.WriteLine()
+        AnsiConsole.MarkupLine($"Destroyed In Fire: {State.DestroyedInFire} Trees {CalculateDifference(State.DestroyedInFire, OldState.DestroyedInFire)}")
+        AnsiConsole.WriteLine()
         AnsiConsole.WriteLine()
 
         
         AnsiConsole.WriteLine()
-        AnsiConsole.MarkupLine($"Press 'P' To increase the simulation speed. 'O' To Slowdown           Current Speed: {Speed}")
-    End Sub
-    
-    Private Sub Render(title As String, chart As IRenderable)
-        AnsiConsole.Write(new Panel(chart))
+        AnsiConsole.MarkupLine($"Press '[yellow]P[/]' To increase the simulation speed. '[yellow]O[/]' To Slowdown           Current Speed: [yellow]{Speed}[/]")
     End Sub
     
     Public Function CalculateDifference(a as Integer, b as Integer) As String
