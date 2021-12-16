@@ -17,6 +17,7 @@ Module Manager
         If Month = Month.January
             Year += 1
             HarvestMonth = Int((Month.December * Rnd) + 1)
+            Deer += 25
         End If
         TreeManager.Update()
         
@@ -33,6 +34,8 @@ Module Manager
         State.Syrup = Syrup
         State.Harvested = Harvested
         State.DestroyedInFire = DestroyedInFire
+        State.Deer = Deer
+        State.Diseased = Diseased
     End Sub
     
     Public Sub DebugOutput()
@@ -47,14 +50,14 @@ Module Manager
             $"Nordmann Fir: {State.NordmannFir} {CalculateDifference(State.NordmannFir, OldState.NordmannFir)}")
         AnsiConsole.MarkupLine($"Maple: {State.Maple} {CalculateDifference(State.Maple, OldState.Maple)}")
         AnsiConsole.WriteLine()
+        AnsiConsole.MarkupLine($"Deer: {State.Deer} {CalculateDifference(State.Deer, OldState.Deer)}")
+        AnsiConsole.WriteLine()
         AnsiConsole.MarkupLine($"Syrup: {State.Syrup}L {CalculateDifference(State.Syrup, OldState.Syrup)}")
         AnsiConsole.MarkupLine($"Harvested: {State.Harvested} Trees {CalculateDifference(State.Harvested, OldState.Harvested)}")
         AnsiConsole.WriteLine()
         AnsiConsole.MarkupLine($"Destroyed In Fire: {State.DestroyedInFire} Trees {CalculateDifference(State.DestroyedInFire, OldState.DestroyedInFire)}")
+        AnsiConsole.MarkupLine($"Diseased: {State.Diseased} Trees {CalculateDifference(State.Diseased, OldState.Diseased)}")
         AnsiConsole.WriteLine()
-        AnsiConsole.WriteLine()
-
-        
         AnsiConsole.WriteLine()
         AnsiConsole.MarkupLine($"Press '[yellow]P[/]' To increase the simulation speed. '[yellow]O[/]' To Slowdown           Current Speed: [yellow]{Speed}[/]")
     End Sub

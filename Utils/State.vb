@@ -16,6 +16,8 @@ Namespace Utils
         Public Dim Syrup As Double
         Public Dim Harvested As Integer
         Public Dim DestroyedInFire As Integer
+        Public Dim Deer As Integer
+        Public Dim Diseased As Integer
         
         Public Function Clone() As Object Implements ICloneable.Clone
             Dim m As New MemoryStream()
